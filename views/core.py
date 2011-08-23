@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 
 def _lookup_template(name):
     """ Potential support for themes, in theory.
@@ -15,5 +16,5 @@ def home(request):
     4: ???
     5: Profit!
     """
-    return render_to_response(_lookup_template('home'))
+    return render_to_response(_lookup_template('home'), context_instance=RequestContext(request))
 
