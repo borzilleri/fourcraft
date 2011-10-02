@@ -24,18 +24,31 @@ function init_map(regions) {
   nwseattle.setMap(map);
 }
 
+function login(e) {
+  // FIXME: Need a better way to specify url prefix?
+  // Maybe not, if we know this will eventually live at the root
+  // of its own domain.
+  window.location('/fourcraft/login');
+}
+
 $(function() {
+  // FIXME: This is temporary data, needs to be removed eventually.
   var seattle = {
     'northwest': [
   [47.719232,-122.452927],[47.7338, -122.325],
 [47.7338, -122.325],[47.6207, -122.454]
   ]
   };
-
   init_map(seattle);
 
-  $('#login-button').live('click', function() {
-
-  });
+  // TODO: Eventually replace this with an ajax call to get
+  // user state.
+  var userLoggedIn = false;
+  if( userLoggedIn ) {
+    // Display user info?
+  }
+  else {
+    $('#login-button').live('click', login);
+  }
 });
 
